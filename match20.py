@@ -38,9 +38,9 @@ def main():
 	love_dict = read_file(sys.argv[1])
 	match_dict = find_matches(love_dict)
 
-	smtp_server = "smtp.gmail.com"
+	smtp_server = "smtp.<host>.com"
 	port = 465 
-	sender_email = "classof2020@gmail.com"
+	sender_email = "<your_email>@<host>.com"
 	password = input("Type your password and press enter: ")
 	context = ssl.create_default_context()
 
@@ -52,18 +52,7 @@ def main():
 	    server.login(sender_email, password)
 	    for name in match_dict:
 	    	server.sendmail(sender_email, name, "here are your matches: " + ', '.join(match_dict[name]))
-	    	# msg = MIMEMultipart()
-	    	# message = "here are your matches: " + ', '.join(match_dict[name])
-	    	# msg['From'] ='jacksongeilers@gmail.com'
-	    	# msg['To']=name
-	    	# msg['Subject']="This is TEST"
-	    	# msg.attach(MIMEText(message, 'plain'))
-	    	# s.send_message(msg)
-	    	# del msg
 	    print("Success")
-	# except Exception as e:
-	#     print("ERROR")
-	# finally:
 	server.quit() 
 
 if __name__ == '__main__':
