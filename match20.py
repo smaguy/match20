@@ -52,7 +52,7 @@ def main():
 	    server.login(sender_email, password)
 	    for name in match_dict:
 	    	server.sendmail(sender_email, name, "here are your matches: " + ', '.join(match_dict[name]))
-	    print("Success")
+	    print("Congrats on your success! Be sure to reach out to your match(es) before the end of the year ;)")
 	server.quit() 
 
 if __name__ == '__main__':
